@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Grid.tscn" type="PackedScene" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/UbuntuMono_Nerd_Font_Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = SubResource( 1 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+Grid = ExtResource( 2 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 104.235
+margin_top = 71.2719
+margin_right = 244.235
+margin_bottom = 196.272
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Grille 1" type="Button" parent="Menu"]
+margin_right = 140.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 2 )
+text = "Grille 1"
+
+[node name="Grille 2" type="Button" parent="Menu"]
+margin_top = 43.0
+margin_right = 140.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+text = "Grille 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grille 3" type="Button" parent="Menu"]
+margin_top = 86.0
+margin_right = 140.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 2 )
+text = "Grille 3"
+
+[node name="Result" type="Label" parent="."]
+margin_left = 568.393
+margin_top = 114.035
+margin_right = 608.393
+margin_bottom = 147.035
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Regles" type="RichTextLabel" parent="."]
+margin_left = 151.041
+margin_top = 503.496
+margin_right = 853.041
+margin_bottom = 592.496
+custom_fonts/normal_font = SubResource( 2 )
+text = "On parcours la grille en avançant toujours vers la droite ou le bas."
+
+[node name="RandomGrid" type="Button" parent="."]
+margin_left = 97.4706
+margin_top = 293.471
+margin_right = 253.471
+margin_bottom = 332.471
+custom_fonts/font = SubResource( 2 )
+text = "Au hasard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Menu/Grille 1" to="." method="on_click_button_1"]
+[connection signal="pressed" from="Menu/Grille 2" to="." method="on_click_button_2"]
+[connection signal="pressed" from="Menu/Grille 3" to="." method="on_click_button_3"]
+[connection signal="pressed" from="RandomGrid" to="." method="on_click_button_random"]
